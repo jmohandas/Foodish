@@ -3,10 +3,14 @@ import CategoryTile from '../components/CategoryTile';
 
 import { CATEGORIES } from '../data/dummyData';
 
-const CategoriesListScreen = () => {
+const CategoriesListScreen = ({ navigation }) => {
+    const openMealsListAction = () => {
+        navigation.navigate('MealsList');
+    };
+
     const renderCatgoryTiles = ({ item }) => {
-       return <CategoryTile item = {item} />
-    }
+       return <CategoryTile item = {item} onPress = { openMealsListAction }/>
+    };
 
     return (
         <View style={ styles.listContainer }>
