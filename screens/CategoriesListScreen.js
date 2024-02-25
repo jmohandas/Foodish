@@ -4,12 +4,14 @@ import CategoryTile from '../components/CategoryTile';
 import { CATEGORIES } from '../data/dummyData';
 
 const CategoriesListScreen = ({ navigation }) => {
-    const openMealsListAction = () => {
-        navigation.navigate('MealsList');
+    const openMealsListAction = (item) => {
+        navigation.navigate('MealsList', {
+            catId: item.id
+        });
     };
 
     const renderCatgoryTiles = ({ item }) => {
-       return <CategoryTile item = {item} onPress = { openMealsListAction }/>
+       return <CategoryTile item = {item} onPress = { openMealsListAction.bind(this, item) }/>
     };
 
     return (
