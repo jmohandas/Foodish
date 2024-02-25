@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
+import CategoriesListScreen from './screens/CategoriesListScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>This is the beginning of foodish project</Text>
+      <CategoriesListScreen />
     </View>
   );
 }
