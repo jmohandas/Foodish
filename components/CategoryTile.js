@@ -4,14 +4,17 @@ const ScreenWidth = Dimensions.get('window').width;
 
 const CategoryTile = ({item}) => {
     return (
-        <View style={ [ styles.wrapperContainer, { backgroundColor: item.color }] }>
-            <Pressable onPress={() => { console.log("Pressed - " + item.id) }} android_ripple={{ color: "#ccc" }}>
+        <View style={ [ styles.wrapperContainer] }>
+            <Pressable 
+                onPress={() => { console.log("Pressed - " + item.id) }} 
+                android_ripple={{ color: "#ccc" }}
+                style={({pressed}) => [{ backgroundColor: item.color, borderRadius: 8, }, pressed && { opacity: 0.65 }]}>
                 <View style={ styles.innerView }>
                     <Text style={ styles.titleText }>{ item.title }</Text>
                 </View>
             </Pressable>
         </View>
-    )
+    );
 };
 
 const styles = StyleSheet.create({
@@ -36,8 +39,11 @@ const styles = StyleSheet.create({
         height: ScreenWidth * 0.4,
     },
     titleText: {
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 'bold'
+    },
+    clickStyle: {
+        opacity: 0.45
     }
 });
 
