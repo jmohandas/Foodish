@@ -2,11 +2,11 @@ import { View, StyleSheet, Text, Dimensions, Pressable } from 'react-native';
 
 const ScreenWidth = Dimensions.get('window').width;
 
-const CategoryTile = ({item}) => {
+const CategoryTile = ({item, onPress}) => {
     return (
         <View style={ [ styles.wrapperContainer] }>
             <Pressable 
-                onPress={() => { console.log("Pressed - " + item.id) }} 
+                onPress={ onPress } 
                 android_ripple={{ color: "#ccc" }}
                 style={({pressed}) => [{ backgroundColor: item.color, borderRadius: 8, }, pressed && { opacity: 0.65 }]}>
                 <View style={ styles.innerView }>
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         shadowColor: '#000',
         shadowOpacity: 0.45,
         shadowRadius: 8,
-        shadowOffset: { width: 2, height: 4 },
+        shadowOffset: { width: 1, height: 2 },
         elevation: 4,
         justifyContent: 'center',
         alignItems: 'center'
