@@ -1,5 +1,5 @@
 import { View, StyleSheet, Text, FlatList } from 'react-native';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import MealListElement from '../components/MealListElement';
 
 import { MEALS, CATEGORIES } from '../data/dummyData'
@@ -11,7 +11,8 @@ const MealsListScreen = ({ route, navigation }) => {
     const renderMealsList = ({ item }) => {
         return <MealListElement item={ item } />
     };
-    useEffect(() => {
+    
+    useLayoutEffect(() => {
         navigation.setOptions({
             title: CATEGORIES.find(eachCategory => eachCategory.id === catId).title
         });
