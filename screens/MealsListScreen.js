@@ -1,4 +1,5 @@
 import { View, StyleSheet, Text, FlatList } from 'react-native';
+import { useEffect } from 'react';
 import MealListElement from '../components/MealListElement';
 
 import { MEALS, CATEGORIES } from '../data/dummyData'
@@ -10,10 +11,11 @@ const MealsListScreen = ({ route, navigation }) => {
     const renderMealsList = ({ item }) => {
         return <MealListElement item={ item } />
     };
-    
-    navigation.setOptions({
-        title: CATEGORIES.find(eachCategory => eachCategory.id === catId).title
-    });
+    useEffect(() => {
+        navigation.setOptions({
+            title: CATEGORIES.find(eachCategory => eachCategory.id === catId).title
+        });
+    }, [catId]);
 
     return (
         <View style={ styles.mealsListContainer }>
