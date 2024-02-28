@@ -18,7 +18,7 @@ The system shall have `NodeJS` to install the follwoing package
 
 1. Checkout the project from GitHub
 2. Traverse to the `Foodish` project directory in Terminal
-3. Execute the follwoing command to download all required NPM dependencies
+3. Execute the following command to download all required NPM dependencies
     >
     > npm i
     >
@@ -26,7 +26,7 @@ The system shall have `NodeJS` to install the follwoing package
     >
     > npx expo start
     >
-5. Once the app is started and redy you can select the appropriate option according to the simulator
+5. Once the app is started and ready in terminal with QR code, you can select the appropriate option according to the simulator
 
 > [!TIP]
 > You can press either `a` for Android or `i` for IOS depending on the simulator where you want to run the app.
