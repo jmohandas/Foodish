@@ -1,14 +1,26 @@
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer'; 
 
 import CategoriesListScreen from './screens/CategoriesListScreen';
 import MealsListScreen from './screens/MealsListScreen'
 import MealPlanScreen from './screens/MealPlanScreen';
+import FavoritesScreen from './screens/FavoritesScreen';
 
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
+  const DrawerNavigations = () => {
+    return (
+      <Drawer.Navigator>
+        <Drawer.Screen name='CategoriesList' component={CategoriesListScreen} />
+        <Drawer.Screen name='Favorites' component={FavoritesScreen} />
+      </Drawer.Navigator>
+    );
+  };
+
   return (
     <>
       <StatusBar style='light' />
@@ -20,8 +32,8 @@ export default function App() {
               contentStyle: {backgroundColor: '#3f2f25'}
           }}>
             <Stack.Screen 
-              name='CategoriesList' 
-              component={CategoriesListScreen} 
+              name='DarwerNavigations' 
+              component={DrawerNavigations} 
               options={{ 
                 title: 'Categories'
               }} />
