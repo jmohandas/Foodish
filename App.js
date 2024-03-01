@@ -17,7 +17,7 @@ export default function App() {
       <Drawer.Navigator screenOptions={{
             headerStyle: { backgroundColor: '#301401' },
             headerTintColor: 'white',
-            contentStyle: {backgroundColor: '#3f2f25'}
+            sceneContainerStyle: {backgroundColor: '#3f2f25'}
         }}>
         <Drawer.Screen name='CategoriesList' component={CategoriesListScreen} options={{ 
                 title: 'Categories',
