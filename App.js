@@ -14,9 +14,17 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   const DrawerNavigations = () => {
     return (
-      <Drawer.Navigator>
-        <Drawer.Screen name='CategoriesList' component={CategoriesListScreen} />
-        <Drawer.Screen name='Favorites' component={FavoritesScreen} />
+      <Drawer.Navigator screenOptions={{
+            headerStyle: { backgroundColor: '#301401' },
+            headerTintColor: 'white',
+            contentStyle: {backgroundColor: '#3f2f25'}
+        }}>
+        <Drawer.Screen name='CategoriesList' component={CategoriesListScreen} options={{ 
+                title: 'Categories',
+              }}/>
+        <Drawer.Screen name='Favorites' component={FavoritesScreen} options={{ 
+                title: 'Favorites',
+              }}/>
       </Drawer.Navigator>
     );
   };
@@ -35,7 +43,8 @@ export default function App() {
               name='DarwerNavigations' 
               component={DrawerNavigations} 
               options={{ 
-                title: 'Categories'
+                title: 'Categories',
+                headerShown: false
               }} />
             <Stack.Screen 
               name='MealsList' 
