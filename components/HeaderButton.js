@@ -1,10 +1,11 @@
 import { StyleSheet, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const HeaderButton = ({ onPressAction }) => {
+const HeaderButton = ({ onPressAction, isFavorite }) => {
+    const iconName = isFavorite ? 'heart' : 'heart-outline';
     return (
         <Pressable onPress={onPressAction} style={({pressed}) => { pressed && styles.iconPress }}>
-            <Ionicons name='heart-outline' size={24} color="white" />
+            <Ionicons name={iconName} size={24} color="white" />
         </Pressable>
     );
 };
