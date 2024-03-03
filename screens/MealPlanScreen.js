@@ -1,26 +1,33 @@
 import { View, StyleSheet, ScrollView } from 'react-native';
-import { useLayoutEffect  } from 'react';
+import { useContext, useLayoutEffect  } from 'react';
 import IngredientsSection from '../components/mealPlan/IngredientsSection';
 import MealHeroSection from '../components/mealPlan/MealHeroSection';
 import MealPrepStepsSection from '../components/mealPlan/MealPrepStepsSection';
 import { MEALS } from '../data/dummyData'
 import HeaderButton from '../components/HeaderButton';
+import { FavoriteContext } from '../store/context/FavoritesContext';
 
 const MealPlanScreen = ({ route, navigation }) => {
     const mealId = route.params.mealId;
     const mealPlan = MEALS.find(eachMeal => eachMeal.id === mealId);
+    const favoritesContext = useContext(FavoriteContext);
+    const isFavorite = favoritesContext.ids && favoritesContext.ids.includes(mealId);
 
     const onHeaderButtonPress = () => {
-        console.log('Header Button Pressed!');
+        if (isFavorite) {
+            favoritesContext.removeFavorite(mealId);
+        } else {
+            favoritesContext.addFavorite(mealId)
+        }
     }
 
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => {
-                return <HeaderButton onPressAction = {onHeaderButtonPress}/>;
+                return <HeaderButton isFavorite = {isFavorite} onPressAction = {onHeaderButtonPress}/>;
             }
         })
-    }, [navigation])
+    }, [navigation, onHeaderButtonPress])
 
     return (
         <ScrollView>
